@@ -5,7 +5,7 @@ parent: Getting Linux
 nav_order: 2
 ---
 
-# Typography
+# Installing WSL2 on Windows 11
 {: .no_toc }
 
 ## Table of contents
@@ -15,6 +15,6 @@ nav_order: 2
 {:toc}
 
 ---
-# Installing WSL2 on Windows 11
+## Requirements
 
 Hello mommy

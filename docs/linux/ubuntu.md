@@ -5,7 +5,7 @@ parent: Getting Linux
 nav_order: 3
 ---
 
-# Typography
+# Installing Ubuntu
 {: .no_toc }
 
 ## Table of contents
@@ -15,6 +15,6 @@ nav_order: 3
 {:toc}
 
 ---
-# Installing Ubuntu
+## Requirements
 
 Hello mommy

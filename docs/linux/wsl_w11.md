@@ -5,7 +5,7 @@ parent: Getting Linux
 nav_order: 2
 ---
 
-# Installing WSL2 on Windows 11
+# Installing WSL 2 on Windows 11
 {: .no_toc }
 
 ## Table of contents
@@ -15,6 +15,11 @@ nav_order: 2
 {:toc}
 
 ---
+
+## Introduction
+
+WSL (Windows subsytem for linux) is a compability layer that enables you to use Linux tools without the need to dual-boot. The latest version of WSL 2 on windows 11 includes native support for graphic apps, which simplifies the work flow integration.
+
 ## Requirements
 
-Hello mommy
+If you are using windows 11, no extra requirements are needed.

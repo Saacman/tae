@@ -26,6 +26,6 @@ WSL (Windows subsytem for linux) is a compability layer that enables you to use 
 
 You must be running Windows 10 version 2004 (Build 19041) or Higher. We recommend running windows updater before starting this guide.
 
-To check your windows version press `Windows Key + R`, type `winver` and press `Enter`. {: .label .label-red }
+> To check your windows version press `Windows Key + R`, type `winver` and press `Enter`.
 
 

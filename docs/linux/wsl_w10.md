@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Installing Ubuntu
+title: WSL on W10
 parent: Getting Linux
-nav_order: 3
+nav_order: 1
 ---
 
 # Typography
@@ -15,6 +15,6 @@ nav_order: 3
 {:toc}
 
 ---
-# Installing Ubuntu
+# Installing WSL2 on Windows 10
 
 Hello mommy

@@ -23,3 +23,17 @@ WSL (Windows subsytem for linux) is a compability layer that enables you to use 
 ## Requirements
 
 If you are using windows 11, no extra requirements are needed.
+
+## Installation
+
+Simply run **PowerShell as administrator** 
+
+![](../../assets/img/pwrshell-w10.png)
+
+Then run the following command:
+
+```powershell
+wsl --install
+```
+
+## Using the GUI

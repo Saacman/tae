@@ -14,5 +14,5 @@ To use the EDA tools set for this course is neccesary to have access to a Linux 
 <div class="code-example" markdown="1">
 Warning
 {: .label .label-red }
-It is **not recommended** to use a virtual machine, since the virtualization overhead difficults the use of the EDA tools. Additionally, you'll need at least +10 Gb of free space to install the PDK.
+It is **not recommended** to use a virtual machine, since the virtualization overhead difficults the use of the EDA tools. Before choosing an option, consider at least +10 Gb of free space for the PDK installation.
 </div>

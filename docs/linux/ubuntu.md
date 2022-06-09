@@ -20,6 +20,13 @@ nav_order: 3
 
 Ubuntu is one of the most popular Linux distros there is. It is based on Debian, and it uses the APT package manager, which while simple, will allow us to access almost any software or dependency needed.
 
+<div class="code-example" markdown="1">
+Warning
+{: .label .label-red }
+Maintaining a dual-boot system is tricky. Please consider installing Ubuntu as your main OS, or using the WSL compability layer on Windows. Remember to back-up your files before applying any modification to your partition table.
+</div>
+
+
 ## Requirements
 
 To install Ubuntu you'll need:

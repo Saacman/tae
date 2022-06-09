@@ -1,6 +1,6 @@
 ---
 layout: default
-title: WSL on W10
+title: WSL on Windows 10
 parent: Getting Linux
 nav_order: 1
 ---

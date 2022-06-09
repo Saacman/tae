@@ -29,9 +29,29 @@ To install Ubuntu you'll need:
 - BalenaEtcher (or Rufus)
 
 You can get the latest release of Ubuntu at:
-[Ubuntu 22.04](https://releases.ubuntu.com/22.04/ubuntu-22.04-desktop-amd64.iso){: .btn .btn-orange }
+[Ubuntu 22.04](https://releases.ubuntu.com/22.04/ubuntu-22.04-desktop-amd64.iso){: .btn .btn-purple }
 
 The latest version of BalenaEtcher is available at:
 
-[Ubuntu 22.04](https://www.balena.io/etcher/){: .btn .btn-green }
+[BalenaEtcher](https://www.balena.io/etcher/){: .btn .btn-green }
 
+## Creating a Bootable drive
+
+Mounting the ISO on Balena Etcher only takes three steps:
+
+1. Select the downloaded ISO
+2. Select your USB drive
+3. Flash your device
+
+![](../../assets/img/balena.png)
+
+
+## Booting Ubuntu and installation
+
+Boot your computer from the bootable drive by accessing the boot menu of your computer. You can try using `F2`, `F12` or `ESC` to access the boot menu. To find the correct button, find the specific instructions according to your motherboard and BIOS.
+
+After booting from the drive, the GRUB menu will appear. Select the first option.
+
+![](../../assets/img/grub.png)
+
+After booting 

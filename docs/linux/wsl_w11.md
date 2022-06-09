@@ -1,6 +1,6 @@
 ---
 layout: default
-title: WSL on W11
+title: WSL on Windows 11
 parent: Getting Linux
 nav_order: 2
 ---

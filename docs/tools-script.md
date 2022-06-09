@@ -53,13 +53,13 @@ make
 sudo make install
 ```
 
-
 ## Installing the PDK
 
 After installing the needed tools, we can install the SkyWater PDK. Since installing the full PDK is slow and requires a lot of storage, we'll install a minimal version with the needed cells.
 
-First we clone the Skywater repository, and initialize the needed submodules.
+First we clone the Skywater repository, and initialize the needed submodules. **Make sure to start at the `/home` directory.**
 ```bash
+cd ~/
 git clone https://github.com/google/skywater-pdk
 cd skywater-pdk/
 git submodule init libraries/sky130_fd_io/latest
@@ -67,12 +67,14 @@ git submodule init libraries/sky130_fd_pr/latest
 git submodule init libraries/sky130_fd_sc_hd/latest
 git submodule update
 make timing
-cd
+
 ```
 
 Now, clone the Open PDKs repo to configure and install the repository. Since we already cloned the PDK repo, we'll indicate the configuration script where to find it, instead of pulling the full repo.
 
+**Make sure to start at the `/home` directory.**
 ```bash
+cd ~/
 git clone git://opencircuitdesign.com/open_pdks
 cd open_pdks/
 ./configure --enable-sky130-pdk=~/skywater-pdk
@@ -85,14 +87,15 @@ make distclean
 ```
 
 If desired, the installation repos can also ve removed to free additional storage.
+
 ```bash
-cd
+cd ~/
 rm -rf magic/ open_pdks/ skywater-pdk/
 ```
 
-## Adding env variables to bashrc
+## Adding env variables to .bashrc
 
-Copy and paste the following commands to add the environment variables to your bashrc file.
+Copy and paste the following commands to add the environment variables to your .bashrc file.
 
 ```bash
 echo "export PDK_ROOT=\"/usr/local/share/pdk/\"" >> ~/.bashrc

@@ -18,11 +18,11 @@ nav_order: 1
 
 ## Introduction
 
-The Windows subsytem for Linux (WSL) is a compability layer that enables you to use Linux tools without the need to dual-boot. On Windows 10, a 3rd party tool is needed to use graphical applications.
+The Windows Subsytem for Linux (WSL) is a compatibility layer that enables you to use Linux tools without the need to dual-boot. On Windows 10, a 3rd party tool is needed to use graphical applications.
 
 ## Requirements
 
-You must be running **Windows 10 version 2004** (**Build 19041**) or **Higher**. It is highly recommended to run **Windows Update** before starting this guide.
+You must be running **Windows 10 version 2004** (**Build 19041**) or **Higher**. It is highly recommended running **Windows Update** before starting this guide.
 
 <div class="code-example" markdown="1">
 Tip: To check your windows version press `Windows Key + R`, type `winver` and press `Enter`.
@@ -46,7 +46,7 @@ Once that windows has restarted, Ubuntu should start automatically with the mess
 
 ![](../../assets/img/ubuntustrt.png)
 
-After a few minutes, a prompt will ask for a user name and a password. This user and password are exclusive for Ubuntu, and are not related to the Windows ones.
+After a few minutes, a prompt will ask for a username and a password. This user and password are exclusive for Ubuntu, and are not related to the Windows ones.
 
 ![](../../assets/img/firstrun.png)
 
@@ -58,11 +58,11 @@ Following the user credentials set-up, a message should indicate that the list o
 ```bash
 sudo apt update && sudo apt upgrade
 ```
-After entering your password, the installed packages will be upgraded to their latest stable release. This process can take up to 10 minutes or more depending on the internet connecction. It is a good practice to update pre-installed packages to avoid further problems down the road.
+After entering your password, the installed packages will be upgraded to their latest stable release. This process can take up to 10 minutes or more depending on the internet connection. It is a good practice to update pre-installed packages to avoid further problems down the road.
 
 ## Installing the GUI support
 
-Since WSL 2 on Windows 10 has no support for graphical apps, is necessary to install a Xserver to run applications such as Magic. To simplify this process  we'll use `GWSL`, from Opticos Studios.
+Since WSL 2 on Windows 10 has no support for graphical apps, is necessary to install a Xserver to run applications such as Magic. To simplify this process we'll use `GWSL`, from Opticos Studios.
 
 [GWSL on Github](https://opticos.github.io/gwsl/){: .btn .btn-green }
 
@@ -74,9 +74,9 @@ After installing, **grant firewall access to GWSL**. This is the only extra conf
 
 ![](../../assets/img/firewall.png)
 
-If set up correctly, you should be able to run graphical apps on Ubuntu, which are completely integrated with the windows desktop.
+If set up correctly, you should be able to run graphical apps on Ubuntu, which are completely integrated with the Windows desktop.
 
-![Running AisleRiot on windows](../../assets/img/aisleriot.png)
+![Running AisleRiot on Windows](../../assets/img/aisleriot.png)
 
 
 

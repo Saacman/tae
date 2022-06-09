@@ -32,7 +32,7 @@ Maintaining a dual-boot system is tricky. Please consider installing Ubuntu as y
 To install Ubuntu you'll need:
 
 - Ubuntu ISO image
-- A 4GB or larger USB drive
+- A 4 GB or larger USB drive
 - BalenaEtcher (or Rufus)
 
 You can get the latest release of Ubuntu at:
@@ -76,7 +76,7 @@ If you have an internet connection select the option to download updates while i
 
 ## Installation Type
 
-According to your preference, you may need to choose between using Ubuntu as your main OS, or installing Ubuntu alongside Windows 10. Remember to backup your files before proceeding.
+According to your preference, you may need to choose between using Ubuntu as your main OS, or installing Ubuntu alongside Windows 10. Remember to back up your files before proceeding.
 
 ![](../../assets/img/type.png)
 
@@ -90,11 +90,11 @@ If you want to Dual-boot Ubuntu and Windows, select the option to `Install Ubunt
 
 ![](../../assets/img/winubun.png)
 
-Remember to allocate at least 20 Gb (Because of the PDK, plus the OS and other needed utilities). If the installer is unable to allocate the selected space, the installation will fail. Make sure to have enough free storage.
+Remember to allocate at least 20 GB (Because of the PDK, plus the OS and other needed utilities). If the installer is unable to allocate the selected space, the installation will fail. Make sure to have enough free storage.
 
 ## User Creation
 
-Finally, select your timezone, and proceed to the user creation step. Select an user name, and appropiate password.
+Finally, select your timezone, and proceed to the user creation step. Select a username, and appropriate password.
 
 ![](../../assets/img/usercreate.png)
 

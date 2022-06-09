@@ -8,10 +8,10 @@ permalink: /
 
 ## Welcome to the TAE Course Guide
 
-This site will guide you trough the set up of the needed linux environment and the installation of the tools needed troughout the TAE Course.
+This site will guide you through the set-up of the needed Linux environment and the installation of the tools needed throughout the TAE Course.
 
-Use the side bar to navigate the guide, or use the search bar to look for an specific topic.
+Use the sidebar to navigate the guide, or use the search bar to look for a specific topic.
 
 ### Support or Contact
 
-Having trouble following the guide? Send us a dm and we'll be glad to help.
+Having trouble following the guide? Send us a dm, and we'll be glad to help.

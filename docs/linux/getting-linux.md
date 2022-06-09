@@ -8,7 +8,7 @@ permalink: /docs/getting-linux
 
 # Getting a Linux Environment
 
-To use the EDA tools set for this course is neccesary to have access to a Linux environment. On this Guide we present three simple options to set up a simple Linux environment.
+To use the EDA tools set for this course is necessary to have access to a Linux environment. On this Guide we present three simple options to set up a simple Linux environment.
 {: .fs-6 .fw-300 }
 
 <div class="code-example" markdown="1">

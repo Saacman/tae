@@ -28,7 +28,7 @@ The goal of this guide is to install the open-source EDA Tool set, and configure
 Make sure to have git and make already installed. Since NGSpice and Netgen are available as pre-compiled packages, we can install them using apt too.
 
 ```bash
-sudo apt install -y git make netgen-lvs ngspice ngpsice-doc
+sudo apt install -y git make netgen-lvs ngspice ngspice-doc
 ```
 
 ## Installing Magic VLSI
@@ -75,7 +75,7 @@ Now, clone the Open PDKs repo to configure and install the repository. Since we 
 ```bash
 git clone git://opencircuitdesign.com/open_pdks
 cd open_pdks/
-./configure --enable-sky130-pdk=$cwd/skywater-pdk
+./configure --enable-sky130-pdk=~/skywater-pdk
 make
 sudo make install
 ```

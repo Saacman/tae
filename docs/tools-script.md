@@ -28,7 +28,7 @@ The goal of this guide is to install the open-source EDA Tool set, and configure
 Make sure to have git and make already installed. Since NGSpice and Netgen are available as pre-compiled packages, we can install them using apt too.
 
 ```bash
-sudo apt install -y git make netgen-lvs ngspice ngspice-doc
+sudo apt install -y git make netgen-lvs ngspice ngspice-doc build-essential
 ```
 
 ## Installing Magic VLSI

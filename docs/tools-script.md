@@ -95,9 +95,9 @@ rm -rf magic/ open_pdks/ skywater-pdk/
 Copy and paste the following commands to add the environment variables to your bashrc file.
 
 ```bash
-export PDK_ROOT="/usr/local/share/pdk/" >> ~/.bashrc
-export PDK_PATH="$PDK_ROOT/sky130A" >> ~/.bashrc
-alias magicsky="magic -T $PDK_PATH/libs.tech/magic/sky130A.tech" >> ~/.bashrc
+"export PDK_ROOT=\"/usr/local/share/pdk/\"" >> ~/.bashrc
+"export PDK_PATH=\"$PDK_ROOT/sky130A\"" >> ~/.bashrc
+"alias magicsky=\"magic -T $PDK_PATH/libs.tech/magic/sky130A.tech\"" >> ~/.bashrc
 source ~/.bashrc
 ```
 Now you can use `magicsky` to run magic with the PDK tech file.

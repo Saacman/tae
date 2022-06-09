@@ -11,5 +11,6 @@ permalink: /docs/getting-linux
 To use the EDA tools set for this course is neccesary to have access to a Linux environment. On this Guide we present three simple options to set up a simple Linux environment.
 {: .fs-6 .fw-300 }
 
-Warning {: .label .label-red }
+Warning
+{: .label .label-red }
 > It is not recommended to use a virtual machine, since the virtualization overhead difficults the use of the EDA tools.

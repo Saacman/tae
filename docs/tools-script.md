@@ -57,7 +57,14 @@ sudo make install
 
 After installing the needed tools, we can install the SkyWater PDK. Since installing the full PDK is slow and requires a lot of storage, we'll install a minimal version with the needed cells.
 
-First we clone the Skywater repository, and initialize the needed submodules. **Make sure to start at the `/home` directory.**
+First we clone the Skywater repository, and initialize the needed submodules. 
+
+<div class="code-example" markdown="1">
+Warning
+{: .label .label-red }
+Make sure to **go back to your home directory.**
+</div>
+
 ```bash
 cd ~/
 git clone https://github.com/google/skywater-pdk
@@ -72,7 +79,12 @@ make timing
 
 Now, clone the Open PDKs repo to configure and install the repository. Since we already cloned the PDK repo, we'll indicate the configuration script where to find it, instead of pulling the full repo.
 
-**Make sure to start at the `/home` directory.**
+<div class="code-example" markdown="1">
+Warning
+{: .label .label-red }
+Make sure to **go back to your home directory.**
+</div>
+
 ```bash
 cd ~/
 git clone git://opencircuitdesign.com/open_pdks

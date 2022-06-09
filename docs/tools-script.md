@@ -102,7 +102,7 @@ If desired, the installation repos can also ve removed to free additional storag
 
 ```bash
 cd ~/
-rm -rf magic/ open_pdks/ skywater-pdk/
+rm -rf magic/
 ```
 
 ## Adding env variables to .bashrc

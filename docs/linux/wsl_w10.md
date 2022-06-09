@@ -24,8 +24,10 @@ The Windows subsytem for Linux (WSL) is a compability layer that enables you to 
 
 You must be running **Windows 10 version 2004** (**Build 19041**) or **Higher**. It is highly recommended to run **Windows Update** before starting this guide.
 
-> Tip: To check your windows version press `Windows Key + R`, type `winver` and press `Enter`.
+<div class="code-example" markdown="1">
+Tip: To check your windows version press `Windows Key + R`, type `winver` and press `Enter`.
 ![](../../assets/img/winver.png)
+</div>
 
 ## Installing WSL + Ubuntu
 
@@ -53,7 +55,7 @@ After a few minutes, a prompt will ask for a user name, and a password. This use
 
 After setting up the user credentials, a message should indicate that the list of updates is older than a week. To update the pre-installed packages run:
 
-```powershell
+```bash
 sudo apt update && sudo apt upgrade
 ```
 After entering your password, the installed packages will be upgraded to their latest stable release. This process can take up to 10 minutes or more depending on the internet connecction. It is a good practice to update pre-installed packages to avoid further problems down the road.

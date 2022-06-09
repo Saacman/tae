@@ -42,18 +42,18 @@ wsl --install
 This command will enable the required components, download the Linux kernel, and install **Ubuntu**.
 ![](../../assets/img/wsl-install.png)
 
-After restart, Ubuntu should start automatically with the message: `Installing, this may take a few minutes...`, If not, it should be available on the start menu.
+Once that windows has restarted, Ubuntu should start automatically with the message: `Installing, this may take a few minutes...`, If not, it should be available on the start menu.
 
 ![](../../assets/img/ubuntustrt.png)
 
-After a few minutes, a prompt will ask for a user name, and a password. This user and password are exclusive for Ubuntu, and are not related to the Windows ones.
+After a few minutes, a prompt will ask for a user name and a password. This user and password are exclusive for Ubuntu, and are not related to the Windows ones.
 
 ![](../../assets/img/firstrun.png)
 
 
 ## Ubuntu first run & Updating packages
 
-After setting up the user credentials, a message should indicate that the list of updates is older than a week. To update the pre-installed packages run:
+Following the user credentials set-up, a message should indicate that the list of updates is older than a week. To update the pre-installed packages run:
 
 ```bash
 sudo apt update && sudo apt upgrade

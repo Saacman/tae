@@ -23,6 +23,7 @@ WSL (Windows subsytem for linux) is a compability layer that enables you to use 
 ## Requirements
 
 If you are using windows 11, no extra requirements are needed. Just in case, is recommended to run Windows Update before continuing with this guide. The version of windows used was 21H2 Build 22000.675.
+
 ![](../../assets/img/winverw11.png)
 
 ## Installation
@@ -42,14 +43,14 @@ This command will enable the required components, download the Linux kernel, and
 
 After restart, the windows terminal should start automatically with the message: `Installing, this may take a few minutes...`.
 
-After a few minutes, a prompt will ask for a user name, and a password. This user and password are exclusive for Ubuntu, and are not related to the Windows ones.
+After a few minutes, a prompt will ask for a user name and a password. This user and password are exclusive for Ubuntu, and are not related to the Windows ones.
 
 ![](../../assets/img/terminal.png)
 
 
 ## Ubuntu first run & Updating packages
 
-After setting up the user credentials, a message should indicate that the list of updates is older than a week. To update the pre-installed packages run:
+Following the user credentials set-up, a message should indicate that the list of updates is older than a week. To update the pre-installed packages run:
 
 ```bash
 sudo apt update && sudo apt upgrade
@@ -58,15 +59,13 @@ After entering your password, the installed packages will be upgraded to their l
 
 ## Using the GUI
 
-Windows 11 uses WSLg to enable support for running GUI apps on Windows in a fully integrated desktop experience.
-
-For example, we can install AisleRiot using the command:
+Windows 11 uses WSLg to enable support for running GUI apps on Windows in a fully integrated desktop experience. For example, we can install AisleRiot using the command:
 
 ```bash
 sudo apt install aisleriot
 ```
 
-The after the installation is done, AisleRiot will be available on the Windows start menu.
+Once the installation is done, AisleRiot will be available on the Windows start menu.
 
 ![](../../assets/img/aislew11.png)
 

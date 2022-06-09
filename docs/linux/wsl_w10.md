@@ -78,8 +78,15 @@ If set up correctly, you should be able to run graphical apps on Ubuntu, which a
 
 ![Running AisleRiot on Windows](../../assets/img/aisleriot.png)
 
+## Additional Tips
 
+Use Xterm to launch applications like magic.
 
+```bash
+sudo apt install xterm
+```
+
+![](../../assets/img/xterm.png)
 ## Next steps
 
 To continue with the EDA Tools environment set-up, continue on to the EDA Tools installation guide.

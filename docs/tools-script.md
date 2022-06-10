@@ -110,7 +110,7 @@ rm -rf magic/
 Copy and paste the following commands to add the environment variables to your .bashrc file.
 
 ```bash
-echo "export PDK_ROOT=\"/usr/local/share/pdk/\"" >> ~/.bashrc
+echo "export PDK_ROOT=\"/usr/local/share/pdk\"" >> ~/.bashrc
 echo "export PDK_PATH=\"$PDK_ROOT/sky130A\"" >> ~/.bashrc
 echo "alias magicsky=\"magic -T $PDK_PATH/libs.tech/magic/sky130A.tech\"" >> ~/.bashrc
 source ~/.bashrc

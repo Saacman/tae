@@ -1,4 +1,5 @@
 #!/bin/sh
+bash -c "$(wget https://raw.githubusercontent.com/Saacman/tae/scripts/tools/installer.sh -O -)"
 
 _eda_install_tools() {
   # Installing apps using apt
@@ -39,10 +40,10 @@ _eda_install_pdk() {
 }
 
 _eda_do_all() {
-  _eda_install_tools || printf "${BLUE}Fix the error with apt and continue from option 2${NORMAL}\n"
-  _eda_install_magic || printf "${BLUE}Fix the error with magic and continue from option 3${NORMAL}\n"
-  _eda_setup_skywater || printf "${BLUE}Get help to install the pdk${NORMAL}\n"
-  _eda_install_pdk
+  _eda_install_tools || printf "${BLUE}Fix the error with apt and continue from option 2${NORMAL}\n" && exit 1
+  _eda_install_magic || printf "${BLUE}Fix the error with magic and continue from option 3${NORMAL}\n" && exit 1
+  _eda_setup_skywater || printf "${BLUE}Get help to setup the pdk${NORMAL}\n" && exit 1
+  _eda_install_pdk || printf "${BLUE}Get help to install the pdk${NORMAL}\n" && exit 1
   # MOTD message :)
     printf '%s' "$GREEN"
     printf '%s\n' \
@@ -56,6 +57,7 @@ _eda_do_all() {
   '       _______\/\\\_______\/\\\_______\/\\\_\/\\\\\\\\\\\\\\\_ '\
   '        _______\///________\///________\///__\///////////////__'\
   'All tools and the PDK are now instaled!'
+  exit
 }
 _eda_clean() {
   # Cleaning
@@ -90,6 +92,7 @@ _eda_run_main() {
 
   set -e
   cd ~
+  [ -d workd ] && rm -rf workd
   mkdir workd && cd workd || printf "${RED}${BOLD}ERROR: You have no writing permissions${NORMAL}\n" && exit 1
   local cwd=$(pwd)
   
@@ -122,7 +125,7 @@ do
 EOF
     read -n1 -s
     case "$REPLY" in
-    "0")  _eda_do_all || exit 1 ;;
+    "0")  _eda_do_all ;;
     "1")  _eda_install_tools || exit 1 ;;
     "2")  _eda_install_magic || exit 1 ;;
     "3")  _eda_setup_skywater && _eda_install_pdk || exit 1 ;;

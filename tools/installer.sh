@@ -4,45 +4,53 @@ _eda_install_tools() {
   # Installing apps using apt
   sudo apt update &&
   sudo apt-get install --assume-yes $LIST_OF_APPS $MAGIC_DEP ||
-  (printf "${RED}${BOLD}ERROR: There is a problem with apt${NORMAL}\n" && return 1)
+  { printf "${RED}${BOLD}ERROR: There is a problem with apt${NORMAL}\n" && exit 1; }
   return 0
 }
 
 _eda_install_magic() {
   git clone git://opencircuitdesign.com/magic || 
   git clone https://github.com/RTimothyEdwards/magic || 
-  (printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}Unable to clone magic repo${NORMAL}\n" && return 1)
-  cd $cwd/magic
-  ./configure && make && sudo make install || (printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}Unable to clone skywater-pdk repo${NORMAL}\n" && return 1)
+  { printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}Unable to clone magic repo${NORMAL}\n" && exit 1; }
+  MAGIC_PATH=$RPATH/magic
+  ./$MAGIC_PATH/configure && make -C $MAGIC_PATH && sudo make -C $MAGIC_PATH install ||
+  { printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}Unable to clone skywater-pdk repo${NORMAL}\n" && exit 1; }
+  rm -rf $MAGIC_PATH
   return 0
 }
 
 _eda_setup_skywater() {
-  git clone https://github.com/google/skywater-pdk || (printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}Unable to clone skywater-pdk repo${NORMAL}\n" && return 1)
-  cd $cwd/skywater-pdk # Setting up the pdk
+  git clone https://github.com/google/skywater-pdk || { printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}Unable to clone skywater-pdk repo${NORMAL}\n" && exit 1; }
+  SKY_PATH=$RPATH/skywater-pdk # Setting up the pdk
+  cd $SKY_PATH
   git submodule init libraries/sky130_fd_io/latest
   git submodule init libraries/sky130_fd_pr/latest
   git submodule init libraries/sky130_fd_sc_hd/latest
   git submodule update
-  make timing || (printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}There is an error with the pdk timing${NORMAL}\n" && return 1)
+  make -C $SKY_PATH timing || { printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}There is an error with the pdk timing${NORMAL}\n" && exit 1; }
+  cd $RPATH
   return 0
 }
 
 _eda_install_pdk() {
   git clone git://opencircuitdesign.com/open_pdks ||
   git clone https://github.com/RTimothyEdwards/open_pdks ||
-  (printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}Unable to clone Open_PDKs repo${NORMAL}\n" && exit 1)
-  cd $cwd/open_pdks/ # Adding to /usr
-  ./configure --enable-sky130-pdk=$cwd/skywater-pdk && make && sudo make install ||
-  (printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}There is a big error here${NORMAL}\n" && exit 1)
-  make distclean
+  { printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}Unable to clone Open_PDKs repo${NORMAL}\n" && exit 1; }
+  OPENPDK_PATH=$RPATH/open_pdks
+  ./$OPENPDK_PATH/configure --enable-sky130-pdk=$RPATH/skywater-pdk && make -C $OPENPDK_PATH && sudo make -C $OPENPDK_PATH install ||
+  { printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}There is a error ${NORMAL}\n" && exit 1; }
+  make -C $OPENPDK_PATH distclean
+  echo "export PDK_ROOT=\"/usr/local/share/pdk\"" >> ~/.bashrc
+  echo "export PDK_PATH=\"$PDK_ROOT/sky130A\"" >> ~/.bashrc
+  echo "alias magicsky=\"magic -T $PDK_PATH/libs.tech/magic/sky130A.tech\"" >> ~/.bashrc
+  source ~/.bashrc
 }
 
 _eda_do_all() {
-  _eda_install_tools || printf "${BLUE}Fix the error with apt and continue from option 2${NORMAL}\n" && exit 1
-  _eda_install_magic || printf "${BLUE}Fix the error with magic and continue from option 3${NORMAL}\n" && exit 1
-  _eda_setup_skywater || printf "${BLUE}Get help to setup the pdk${NORMAL}\n" && exit 1
-  _eda_install_pdk || printf "${BLUE}Get help to install the pdk${NORMAL}\n" && exit 1
+  _eda_install_tools && printf "${BLUE}Done installing netgen & ngspice${NORMAL}\n"
+  _eda_install_magic && printf "${BLUE}Done installing magic${NORMAL}\n"
+  _eda_setup_skywater && printf "${BLUE}Done setting up the pdk for install${NORMAL}\n"
+  _eda_install_pdk && printf "${BLUE}Done installing the pdk${NORMAL}\n"
   # MOTD message :)
     printf '%s' "$GREEN"
     printf '%s\n' \
@@ -56,15 +64,9 @@ _eda_do_all() {
   '       _______\/\\\_______\/\\\_______\/\\\_\/\\\\\\\\\\\\\\\_ '\
   '        _______\///________\///________\///__\///////////////__'\
   'All tools and the PDK are now instaled!'
-  _eda_clean
   exit
 }
-_eda_clean() {
-  # Cleaning
-  cd ~
-  rm -rf $cwd
-  exit 0
-}
+
 _eda_run_main() {
 # Use colors, but only if connected to a terminal, and that terminal
 # supports them.
@@ -90,12 +92,7 @@ _eda_run_main() {
 
   LIST_OF_APPS="netgen-lvs ngspice ngspice-doc git make build-essential"
   MAGIC_DEP="m4 tcsh csh libx11-dev tcl-dev tk-dev libcairo2-dev mesa-common-dev libglu1-mesa-dev"
-
-  cd ~
-  [ -d workd ] && rm -rf workd
-  mkdir workd && cd workd || (printf "${RED}${BOLD}ERROR: You have no writing permissions${NORMAL}\n" && exit 1)
-  local cwd=$(pwd)
-
+  local RPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
   
   # Extending sudo timeout
 
@@ -111,7 +108,6 @@ _eda_run_main() {
 
   while :
 do
-    clear
     cat<<EOF
     ===============================
     Welcome to the EDA setup script
@@ -121,16 +117,17 @@ do
     Option (1) Install NGSpice & Netgen
     Option (2) Install magic
     Option (3) Install the PDK
+    Option (4) Print help
            (Q)uit
     ------------------------------
 EOF
     read -n1 -s
     case "$REPLY" in
     "0")  _eda_do_all ;;
-    "1")  _eda_install_tools || exit 1 ;;
-    "2")  _eda_install_magic || exit 1 ;;
-    "3")  _eda_setup_skywater && _eda_install_pdk || exit 1 ;;
-    "Q")  _eda_clean                ;;
+    "1")  _eda_install_tools ;;
+    "2")  _eda_install_magic ;;
+    "3")  _eda_setup_skywater ;;
+    "Q")  exit                ;;
     "q")  echo "case sensitive!!"   ;; 
      * )  echo "invalid option"     ;;
     esac

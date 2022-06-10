@@ -1,7 +1,7 @@
 ---
 layout: default
-title: WSL on Windows 10
-parent: Getting Linux
+title: Install via script
+parent: Installing the Tools
 nav_order: 1
 permalink: /docs/getting-linux/w10
 ---

@@ -1,5 +1,8 @@
 #!/bin/sh
-
+# Using wget
+# bash -c "$(wget https://raw.githubusercontent.com/Saacman/tae/scripts/tools/installer.sh -O -)"
+# Using curl
+# bash -c "$(curl -fsSL https://raw.githubusercontent.com/Saacman/tae/scripts/tools/installer.sh)"
 _eda_install_tools() {
   # Installing apps using apt
   sudo apt update &&
@@ -95,7 +98,6 @@ _eda_run_main() {
   local RPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
   
   # Extending sudo timeout
-
   sudo -v # ask for sudo password up-front
   while true; do
     # Update user's timestamp without running a command
@@ -117,7 +119,6 @@ do
     Option (1) Install NGSpice & Netgen
     Option (2) Install magic
     Option (3) Install the PDK
-    Option (4) Print help
            (Q)uit
     ------------------------------
 EOF

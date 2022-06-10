@@ -3,6 +3,7 @@ layout: default
 title: WSL on Windows 10
 parent: Getting Linux
 nav_order: 1
+permalink: /docs/getting-linux/w10
 ---
 
 # Installing WSL 2 on Windows 11

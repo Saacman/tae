@@ -3,6 +3,7 @@ layout: default
 title: Installing Ubuntu
 parent: Getting Linux
 nav_order: 3
+permalink: /docs/getting-linux/ubuntu
 ---
 
 # Installing Ubuntu

@@ -2,8 +2,8 @@
 layout: default
 title: Installing the Tools
 nav_order: 3
-has_children: false
-permalink: /docs/tools-script
+has_children: true
+permalink: /docs/tools-guide
 ---
 
 # Installing the EDA Tool set

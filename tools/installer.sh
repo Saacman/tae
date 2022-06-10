@@ -44,7 +44,7 @@ _eda_install_pdk() {
   OPENPDK_PATH=$RPATH/open_pdks
   cd $OPENPDK_PATH
   ./configure --enable-sky130-pdk=$RPATH/skywater-pdk && make -C $OPENPDK_PATH && sudo make -C $OPENPDK_PATH install ||
-  { printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}There is a error ${NORMAL}\n" && exit 1; }
+  { printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}There is an error ${NORMAL}\n" && exit 1; }
   make -C $OPENPDK_PATH distclean
   echo "export PDK_ROOT=\"/usr/local/share/pdk\"" >> ~/.bashrc
   echo "export PDK_PATH=\"$PDK_ROOT/sky130A\"" >> ~/.bashrc
@@ -122,7 +122,8 @@ do
     Option (0) Install & setup everything (First Run Only!)
     Option (1) Install NGSpice & Netgen
     Option (2) Install magic
-    Option (3) Install the PDK
+    Option (3) Setup the PDK
+    Option (4) Install the PDK
            (Q)uit
     ------------------------------
 EOF
@@ -132,6 +133,7 @@ EOF
     "1")  _eda_install_tools ;;
     "2")  _eda_install_magic ;;
     "3")  _eda_setup_skywater ;;
+    "4")  _eda_install_pdk ;;
     "Q")  exit                ;;
     "q")  echo "case sensitive!!"   ;; 
      * )  echo "invalid option"     ;;

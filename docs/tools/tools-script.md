@@ -21,3 +21,5 @@ bash -c "$(wget https://raw.githubusercontent.com/Saacman/tae/scripts/tools/inst
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Saacman/tae/scripts/tools/installer.sh)"
 ```
+
+Please be patient after the message `make[3]: Leaving directory '/home/user/open_pdks/sky130'` appears. The process is not forzen but it may take a few minutes.

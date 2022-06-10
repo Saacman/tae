@@ -16,9 +16,11 @@ _eda_install_magic() {
   git clone https://github.com/RTimothyEdwards/magic || 
   { printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}Unable to clone magic repo${NORMAL}\n" && exit 1; }
   MAGIC_PATH=$RPATH/magic
-  $MAGIC_PATH/configure && make -C $MAGIC_PATH && sudo make -C $MAGIC_PATH install ||
+  cd $MAGIC_PATH
+  ./configure && make -C $MAGIC_PATH && sudo make -C $MAGIC_PATH install ||
   { printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}Unable to set up magic repo${NORMAL}\n" && exit 1; }
   rm -rf $MAGIC_PATH
+  cd ~
   return 0
 }
 
@@ -40,13 +42,15 @@ _eda_install_pdk() {
   git clone https://github.com/RTimothyEdwards/open_pdks ||
   { printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}Unable to clone Open_PDKs repo${NORMAL}\n" && exit 1; }
   OPENPDK_PATH=$RPATH/open_pdks
-  $OPENPDK_PATH/configure --enable-sky130-pdk=$RPATH/skywater-pdk && make -C $OPENPDK_PATH && sudo make -C $OPENPDK_PATH install ||
+  cd $OPENPDK_PATH
+  ./configure --enable-sky130-pdk=$RPATH/skywater-pdk && make -C $OPENPDK_PATH && sudo make -C $OPENPDK_PATH install ||
   { printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}There is a error ${NORMAL}\n" && exit 1; }
   make -C $OPENPDK_PATH distclean
   echo "export PDK_ROOT=\"/usr/local/share/pdk\"" >> ~/.bashrc
   echo "export PDK_PATH=\"$PDK_ROOT/sky130A\"" >> ~/.bashrc
   echo "alias magicsky=\"magic -T $PDK_PATH/libs.tech/magic/sky130A.tech\"" >> ~/.bashrc
   source ~/.bashrc
+  cd ~
 }
 
 _eda_do_all() {

@@ -1,5 +1,4 @@
 #!/bin/sh
-bash -c "$(wget https://raw.githubusercontent.com/Saacman/tae/scripts/tools/installer.sh -O -)"
 
 _eda_install_tools() {
   # Installing apps using apt

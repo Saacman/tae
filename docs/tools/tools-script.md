@@ -3,7 +3,7 @@ layout: default
 title: Install via script
 parent: Installing the Tools
 nav_order: 1
-permalink: /docs/getting-linux/w10
+permalink: /docs/tools-guide/script
 ---
 
 # Bash script to install the tools

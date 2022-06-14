@@ -39,9 +39,8 @@ _eda_install_pdk() {
   { printf "${RED}${BOLD}ERROR:${NORMAL} ${YELLOW}There is an error ${NORMAL}\n" && exit 1; }
   make -C $OPENPDK_PATH distclean
   echo "export PDK_ROOT=\"/usr/local/share/pdk\"" >> ~/.bashrc
-  echo "export PDK_PATH=\"$PDK_ROOT/sky130A\"" >> ~/.bashrc
-  echo "alias magicsky=\"magic -T $PDK_PATH/libs.tech/magic/sky130A.tech\"" >> ~/.bashrc
-  source ~/.bashrc
+  echo "export PDK_PATH=\"\$PDK_ROOT/sky130A\"" >> ~/.bashrc
+  echo "alias magicsky=\"magic -T \$PDK_PATH/libs.tech/magic/sky130A.tech\"" >> ~/.bashrc
   cd ~
 }
 

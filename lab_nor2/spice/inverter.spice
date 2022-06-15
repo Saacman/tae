@@ -1,0 +1,27 @@
+Optimize an inverter - change NMOS width
+
+.model nmos_intr nmos level=1 kp=50u vto=0.5 lambda=0.1 gamma=0.6 phi=0.8 tox=150n cgdo=0 cgso=0
+vs  vs  0 dc 1.25
+vb  vb vx dc 2.50
+vx  0  vx 0
+Rs  vs vg 50k
+Ro  vb vo 300k
+Co  vo 0  0.001p
+*   drain gate source bulk
+mn1  vo vg 0 0 nmos_intr w=40u l=20u
+
+.control
+    let nmoswidth = 40u
+    alter mn1 w = nmoswidth
+    let ix = 0
+    dowhile ix < 4
+      dc vs 0 2.5 0.01  
+      let nmoswidth = nmoswidth + 15u
+      alter @mn1[w] = nmoswidth
+      let ix = ix + 1
+    end  
+    plot dc1.i(vx) dc2.i(vx) dc3.i(vx) dc4.i(vx)  xlabel "gate voltage [V]" ylabel "drain current [A]"  title "Inverter gain as a function of NMOS width"
+*   quit
+.endc
+
+.end

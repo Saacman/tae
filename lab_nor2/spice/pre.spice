@@ -1,0 +1,8 @@
+Inverter Simulation
+* this file edited to remove everything not in tt lib
+.lib "./sky130_fd_pr/models/sky130.lib.spice" tt
+
+* instantiate the inverter
+Xinv Y A VPWR VGND VGND VPWR inverter
+
+.subckt inverter Y A NWELL VSUBS VGND VPWR
